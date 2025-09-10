@@ -49,7 +49,7 @@ const DayClassesList = ({ classesForActiveDay }) => {
             </li>
           ))
         ) : (
-          <p className="text-gray-500 mt-3">No classes found</p>
+          <p className="text-gray-800 mt-3 text-2xl text-center">No classes found</p>
         )}
       </ul>
     </div>
