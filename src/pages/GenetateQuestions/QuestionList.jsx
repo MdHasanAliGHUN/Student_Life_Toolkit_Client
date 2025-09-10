@@ -16,7 +16,16 @@ const QuestionList = ({ topic, type }) => {
   }
 
   if (questions.length === 0) {
-    return null;
+    return (
+      <div className="text-center mt-20">
+        <p className="text-3xl font-bold text-gray-800 mb-4">
+          Oops! No questions are available.
+        </p>
+        <p className="text-xl text-gray-600">
+          Please generate questions to start practicing.
+        </p>
+      </div>
+    );
   }
 
   const handleOptionChange = (qIndex, option) => {
@@ -61,24 +70,21 @@ const QuestionList = ({ topic, type }) => {
                 ))}
               </ul>
             )}
-
             {selected && (
               <p
                 className={`mt-2 font-medium ${
                   isCorrect ? "text-green-600" : "text-red-600"
                 }`}
               >
-                {isCorrect ? "Correct! Well done." : " Wrong! Try again."}
+                {isCorrect ? "Correct! Well done." : "Wrong! Try again."}
               </p>
             )}
-
             <button
               onClick={() => handleShowAnswer(index)}
               className="mt-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
             >
               Show Answer
             </button>
-
             {showAnswer[index] && (
               <p className="mt-1 text-sm text-indigo-700">
                 Correct Answer: {q.correctAnswer}
